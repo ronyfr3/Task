@@ -1,0 +1,31 @@
+.header-wrapper {
+  background-color: #fe6e10;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name-section {
+  color: white;
+  font-weight: 700;
+  padding-left: 25px;
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.account-logo,
+.basket-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  color: #231f20;
+}
+.acc_circle,
+.cart {
+  font-size: 20px;
+}

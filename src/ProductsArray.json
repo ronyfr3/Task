@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Athletic Vest1",
+    "img": "https://www.workwearexpress.com/media/catalog/product/cache/32238170a9b1a23b5a892a2df076762b/s/s/ss100_black_ft.jpg",
+    "price": 3.7,
+    "availableColors": ["black", "green", "red", "yellow", "pink"],
+    "printAvailable": true,
+    "sizes": ["s", "m", "l", "xl"],
+    "ProductCode": "SS100",
+    "plainPricing": [3.6, 3.3, 3.0, 2.59]
+  },
+  {
+    "id": 2,
+    "name": "Athletic Vest2",
+    "img": "https://www.workwearexpress.com/media/catalog/product/cache/32238170a9b1a23b5a892a2df076762b/5/c/5c5c3e3deb9f5b1c75ce8b19b615f5de_1.jpg",
+    "price": 4.5,
+    "availableColors": ["black", "green", "pink", "orange"],
+    "printAvailable": true,
+    "sizes": ["s", "m", "l", "xl"],
+    "ProductCode": "SS200",
+    "plainPricing": [4.2, 4.1, 4.0, 3.99]
+  },
+  {
+    "id": 3,
+    "name": "Athletic Vest3",
+    "img": "https://www.workwearexpress.com/media/catalog/product/cache/32238170a9b1a23b5a892a2df076762b/j/c/jc009_jetblack_ft.jpg",
+    "price": 5.2,
+    "availableColors": ["red", "yellow", "pink"],
+    "printAvailable": true,
+    "sizes": ["s", "m", "l", "xl"],
+    "ProductCode": "SS300",
+    "plainPricing": [5.1, 4.7, 4.5, 4.0]
+  }
+]

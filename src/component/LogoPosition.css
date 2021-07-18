@@ -1,0 +1,51 @@
+.content-wrapper h2 {
+  text-align: center;
+}
+.content-wrapper h3 {
+  padding-left: 35px;
+}
+.logo-positions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(230, 229, 229);
+  width: 200px;
+  background-color: white;
+  margin: 7px;
+  color: rgb(56, 56, 56);
+}
+.main-wrapper span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-wrapper input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.main-wrapper small {
+  color: rgb(148, 148, 148);
+  padding: 5px;
+}
+.main-wrapper img {
+  width: 90%;
+  height: 100%;
+  opacity: 0.6;
+}
+.continue-btn {
+  margin: 50px;
+  border-radius: 3px;
+  background-color: #e95e02;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}

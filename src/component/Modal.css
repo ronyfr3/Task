@@ -1,0 +1,56 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(167, 165, 165);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ffffff;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.circlelogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+.okSign {
+  color: green;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.crossSign {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.addLogo {
+  background-color: #e85d01;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  width: 50%;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 9px;
+}
+.viewCart {
+  font-size: 15px;
+  font-weight: 600;
+  width: 45%;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid rgb(206, 206, 206);
+  margin-left: 5px;
+}

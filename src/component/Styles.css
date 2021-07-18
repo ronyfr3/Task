@@ -1,0 +1,62 @@
+.sizes-wrapper {
+  margin-top: 50px;
+}
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(194, 193, 193);
+  background-color: white;
+  margin: 13px;
+}
+.inStock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-wrapper label {
+  text-transform: uppercase;
+}
+.btns {
+  margin: 10px;
+}
+.btn1 {
+  width: 40px;
+  height: 30px;
+  border: 1px solid rgb(236, 236, 236);
+  outline: none;
+  cursor: pointer;
+}
+.btn2 {
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid rgb(230, 230, 230);
+  outline: none;
+  cursor: pointer;
+}
+
+/* AddToBasket_CSS */
+.cart-wrapper {
+  margin-top: 70px;
+  margin-bottom: 100px;
+  border: 2px solid #08a460;
+  padding: 10px;
+  border-radius: 3px;
+}
+.cart-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addtoCart {
+  background-color: #e95e02;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  width: 200px;
+  height: 40px;
+  font-size: 17px;
+}
