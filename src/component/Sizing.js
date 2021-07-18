@@ -12,7 +12,7 @@ const Sizing = ({ sizes, name, productCode, image }) => {
     count.reduce((a, b) => {
       return a + b;
     }, 0);
-
+  localStorage.setItem("totalItems", sum);
   // console.log(sum);
 
   React.useMemo(() => {
@@ -57,7 +57,7 @@ const Sizing = ({ sizes, name, productCode, image }) => {
           quantity: product.quantity + 1,
         },
       ]);
-      localStorage.setItem("size", e.target.value);
+      localStorage.setItem("size", size);
     } else {
       setChoices([
         ...choices.filter((choice) => choice.size !== size),

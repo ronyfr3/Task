@@ -17,6 +17,7 @@ const FileUpload = () => {
   const logoMethod = localStorage.getItem("logoMethod");
   const logoType = localStorage.getItem("logoType");
   const logoName = localStorage.getItem("filename");
+  const TotalProducts = localStorage.getItem("totalItems");
 
   const { getInputProps, acceptedFiles, open } = useDropzone({
     accept: "image/*",
@@ -84,6 +85,7 @@ const FileUpload = () => {
       </div>
       {showProductDetails && (
         <ProductModal
+          TotalProducts={TotalProducts}
           logoPosition={logoPosition}
           productSize={productSize}
           logoMethod={logoMethod}
