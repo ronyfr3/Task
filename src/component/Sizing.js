@@ -1,54 +1,109 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import AddToBasket from "../component/AddToBasket";
 import "./Styles.css";
 
 const Sizing = ({ sizes, name, productCode, image }) => {
-  const [value, setValue] = useState(0);
-  const increment = useCallback(() => {
-    setValue((value) => value + 1);
-  }, []);
-  const decrement = useCallback(() => {
-    if (value === 0) {
-      setValue(0);
-    } else {
-      setValue((value) => value - 1);
+  const [choices, setChoices] = useState([]);
+
+  React.useMemo(() => {
+    setChoices(sizes && sizes.map((size) => ({ size, quantity: 0 })));
+  }, [sizes]);
+
+  const increment = (size) => {
+    const product = choices.find((item) => item.size === size);
+
+    if (product) {
+      setChoices([
+        ...choices.filter((choice) => choice.size !== size),
+        {
+          ...product,
+          quantity: product.quantity + 1,
+        },
+      ]);
     }
-  }, [value]);
-  const handleChange = (e) => {
+  };
+
+  const decrement = (size) => {
+    const product = choices.find((item) => item.size === size && item.quantity);
+    if (product) {
+      setChoices([
+        ...choices.filter((choice) => choice.size !== size),
+        {
+          ...product,
+          quantity: product.quantity - 1,
+        },
+      ]);
+    }
+  };
+
+  const handleChange = (e, size) => {
     let isChecked = e.target.checked;
-    // console.log(isChecked);
-    if (isChecked) {
-      setValue((value) => value + 1);
+    const product = choices.find((item) => item.size === size);
+    if (isChecked && product) {
+      setChoices([
+        ...choices.filter((choice) => choice.size !== size),
+        {
+          ...product,
+          quantity: product.quantity + 1,
+        },
+      ]);
       localStorage.setItem("size", e.target.value);
     } else {
-      if (value === 0) {
-        setValue(0);
-      } else {
-        setValue((value) => value - 1);
-      }
+      setChoices([
+        ...choices.filter((choice) => choice.size !== size),
+        {
+          ...product,
+          quantity: 0,
+        },
+      ]);
       localStorage.setItem("size", "");
     }
   };
+
   return (
     <div className="sizes-wrapper">
       <h2>2. Sizes & Qantities</h2>
       <div>
         {sizes &&
           sizes.map((size, index) => {
+            console.log(
+              (
+                (choices && choices.find((choice) => choice.size === size)) ||
+                {}
+              ).quantity
+            );
+
             return (
               <div className="counter" key={index}>
                 <div className="input-wrapper">
-                  <input type="checkbox" value={size} onChange={handleChange} />
+                  <input
+                    type="checkbox"
+                    value={size}
+                    checked={
+                      !!choices.find(
+                        (choice) => choice.size === size && choice.quantity
+                      )
+                    }
+                    onChange={(e) => handleChange(e, size)}
+                  />
                   <label htmlFor={size}>{size}</label>
                 </div>
                 <div className="inStock">
                   <p>In Stock</p>
                   <div className="btns">
-                    <button onClick={decrement} className="btn1">
+                    <button onClick={() => decrement(size)} className="btn1">
                       -
                     </button>
-                    <button className="btn2">{value}</button>
-                    <button onClick={increment} className="btn1">
+                    <button className="btn2">
+                      {
+                        (
+                          (choices &&
+                            choices.find((choice) => choice.size === size)) ||
+                          {}
+                        ).quantity
+                      }
+                    </button>
+                    <button onClick={() => increment(size)} className="btn1">
                       +
                     </button>
                   </div>
@@ -61,7 +116,7 @@ const Sizing = ({ sizes, name, productCode, image }) => {
         name={name}
         productCode={productCode}
         image={image}
-        value={value}
+        // value={value}
       />
     </div>
   );
