@@ -3,7 +3,7 @@ import { AiOutlineCheckCircle, AiOutlineClose } from "react-icons/ai";
 import "./Modal.css";
 import { Link } from "react-router-dom";
 
-const Modal = ({ productCode, name, image, setModal, value }) => {
+const Modal = ({ productCode, name, image, setModal, totalItems }) => {
   return (
     <div className="modal">
       <div className="modal-header">
@@ -21,7 +21,7 @@ const Modal = ({ productCode, name, image, setModal, value }) => {
         </div>
       </div>
       <div className="price-section">
-        <h3>{value} Items</h3>
+        <h3>{totalItems} Items</h3>
         <Link to="/choose_position" className="addLogo">
           Add your logo now
         </Link>

@@ -5,6 +5,16 @@ import "./Styles.css";
 const Sizing = ({ sizes, name, productCode, image }) => {
   const [choices, setChoices] = useState([]);
 
+  let count = choices && choices.map((i) => i.quantity);
+  console.log(count);
+  let sum =
+    count &&
+    count.reduce((a, b) => {
+      return a + b;
+    }, 0);
+
+  // console.log(sum);
+
   React.useMemo(() => {
     setChoices(sizes && sizes.map((size) => ({ size, quantity: 0 })));
   }, [sizes]);
@@ -66,13 +76,6 @@ const Sizing = ({ sizes, name, productCode, image }) => {
       <div>
         {sizes &&
           sizes.map((size, index) => {
-            console.log(
-              (
-                (choices && choices.find((choice) => choice.size === size)) ||
-                {}
-              ).quantity
-            );
-
             return (
               <div className="counter" key={index}>
                 <div className="input-wrapper">
@@ -80,6 +83,7 @@ const Sizing = ({ sizes, name, productCode, image }) => {
                     type="checkbox"
                     value={size}
                     checked={
+                      choices &&
                       !!choices.find(
                         (choice) => choice.size === size && choice.quantity
                       )
@@ -116,7 +120,7 @@ const Sizing = ({ sizes, name, productCode, image }) => {
         name={name}
         productCode={productCode}
         image={image}
-        // value={value}
+        totalItems={sum}
       />
     </div>
   );
