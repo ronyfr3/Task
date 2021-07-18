@@ -4,6 +4,14 @@ import "./Method.css";
 
 const ApplicationMethod = () => {
   const [state, setState] = useState("");
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setState(e.target.value);
+      localStorage.setItem("logoMethod", e.target.value);
+    } else {
+      localStorage.setItem("logoMethod", "");
+    }
+  };
   return (
     <div className="method">
       <h2>Add Customisation</h2>
@@ -14,18 +22,18 @@ const ApplicationMethod = () => {
             type="radio"
             value="Embroidery"
             checked={state === "Embroidery"}
-            onChange={() => setState("Embroidery")}
+            onChange={handleChange}
           />
-          <label for="Embroidary">Embroidery(Stitching)</label>
+          <label htmlFor="Embroidary">Embroidery(Stitching)</label>
         </div>
         <div>
           <input
             type="radio"
             value="Print"
             checked={state === "Print"}
-            onChange={() => setState("Print")}
+            onChange={handleChange}
           />
-          <label for="Print">Print</label>
+          <label htmlFor="Print">Print</label>
         </div>
       </div>
       <Link to="/customisation/artwork" className="continue_method">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FileUpload from "../Dropzone/FileUpload";
 import "./UploadLogo.css";
 

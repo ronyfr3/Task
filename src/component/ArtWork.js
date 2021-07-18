@@ -17,7 +17,7 @@ const ArtWork = () => {
             checked={state === "new"}
             onChange={() => setState("new")}
           />
-          <label for="new">Add a new customisation</label>
+          <label htmlFor="new">Add a new customisation</label>
         </div>
       </div>
       <Link to="/customisation/type" className="continue_method">

@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Link } from "react-router-dom";
+import ProductModal from "./ProductModal";
 import "./Upload.css";
 
 const FileUpload = () => {
   const [files, setFiles] = useState([]);
+  localStorage.setItem("filename", JSON.stringify(files));
+  const [showProductDetails, setShowProductDetails] = useState(false);
+  const handleShowProduct = () => {
+    setShowProductDetails(!showProductDetails);
+  };
+
+  const logoPosition = localStorage.getItem("logoPosition");
+  const productSize = localStorage.getItem("size");
+  const logoMethod = localStorage.getItem("logoMethod");
+  const logoType = localStorage.getItem("logoType");
+  const logoName = localStorage.getItem("filename");
+
   const { getInputProps, acceptedFiles, open } = useDropzone({
     accept: "image/*",
     noClick: true,
@@ -19,28 +32,29 @@ const FileUpload = () => {
       );
     },
   });
-
   const thumbs = files.map((file) => (
     <div key={file.name}>
       <div>
-        <img src={file.preview} />
+        <img src={file.preview} alt="" />
       </div>
     </div>
   ));
-
+  const filepath = acceptedFiles.map((file) => (
+    <span key={file.path}>{file.path}</span>
+  ));
   useEffect(
     () => () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     },
     [files]
   );
-
-  const filepath = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
   const [show, setShow] = useState(false);
+
+  if (showProductDetails) {
+    setTimeout(() => {
+      setShowProductDetails(false);
+    }, 5000);
+  }
   return (
     <div className="container">
       <div className="file-wrapper">
@@ -64,13 +78,19 @@ const FileUpload = () => {
         <Link to="/customisation/type" className="backFinishLink">
           Back a step
         </Link>
-        <button
-          className="finishBtn"
-          onClick={() => window.alert("Your journey is ended!")}
-        >
-          Finish
+        <button className="finishBtn" onClick={handleShowProduct}>
+          Show Details
         </button>
       </div>
+      {showProductDetails && (
+        <ProductModal
+          logoPosition={logoPosition}
+          productSize={productSize}
+          logoMethod={logoMethod}
+          logoType={logoType}
+          logoName={logoName}
+        />
+      )}
     </div>
   );
 };

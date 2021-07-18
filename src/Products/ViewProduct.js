@@ -4,7 +4,6 @@ import "./ViewProduct.css";
 import ColorsCode from "../component/Colors";
 import Pricing from "../component/Pricing";
 import Sizing from "../component/Sizing";
-import AddToBasket from "../component/AddToBasket";
 
 const ViewProduct = (props) => {
   const id = props.match.params.id;
@@ -21,7 +20,7 @@ const ViewProduct = (props) => {
   //   console.log(product);
 
   useEffect(() => {
-    const selectedProduct = product.map((i) => {
+    product.map((i) => {
       return (
         setName(i.name),
         setProductCode(i.ProductCode),
@@ -46,8 +45,12 @@ const ViewProduct = (props) => {
         <small>{productCode}</small>
         <Pricing plainPricing={plainPricing} />
         <ColorsCode colors={colors} />
-        <Sizing sizes={sizes} />
-        <AddToBasket name={name} productCode={productCode} image={image} />
+        <Sizing
+          sizes={sizes}
+          name={name}
+          productCode={productCode}
+          image={image}
+        />
       </div>
     </div>
   );

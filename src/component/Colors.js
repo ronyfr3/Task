@@ -7,7 +7,9 @@ const Colors = ({ colors }) => {
       <div className="colorCodes">
         {colors &&
           colors.map((color, index) => {
-            return <button style={{ backgroundColor: color }}></button>;
+            return (
+              <button style={{ backgroundColor: color }} key={index}></button>
+            );
           })}
       </div>
     </div>

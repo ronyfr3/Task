@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import "./Styles.css";
 
-const AddToBasket = ({ productCode, name, image }) => {
+const AddToBasket = ({ productCode, name, image, value }) => {
   const [modal, setModal] = useState(false);
   const modalOpen = () => {
     setModal(!modal);
@@ -16,8 +16,7 @@ const AddToBasket = ({ productCode, name, image }) => {
     <div className="cart-wrapper">
       <h2>3. Add to basket</h2>
       <div className="cart-section">
-        <h3>1 Items</h3>
-        <h3>1 per item</h3>
+        <h3>{value} Items</h3>
         <button className="addtoCart" onClick={modalOpen}>
           Add to basket
         </button>
@@ -28,6 +27,7 @@ const AddToBasket = ({ productCode, name, image }) => {
           productCode={productCode}
           image={image}
           setModal={setModal}
+          value={value}
         />
       ) : (
         ""

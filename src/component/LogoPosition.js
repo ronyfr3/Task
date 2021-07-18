@@ -30,6 +30,14 @@ const LogoPosition = () => {
       img: "https://www.workwearexpress.com/media/customisations/QcxpobP4l5gVHoMXwY0wIOTj1zXit5EE.jpg",
     },
   ];
+  const handleChange = (e) => {
+    let isChecked = e.target.checked;
+    if (isChecked) {
+      localStorage.setItem("logoPosition", e.target.value);
+    } else {
+      localStorage.setItem("logoPosition", "");
+    }
+  };
   return (
     <div className="content-wrapper">
       <h2>Add Customisation</h2>
@@ -46,7 +54,7 @@ const LogoPosition = () => {
               <span>
                 <RiVoiceprintFill /> Print
               </span>
-              <input type="checkbox" value={title} />
+              <input type="checkbox" value={title} onChange={handleChange} />
             </div>
           );
         })}

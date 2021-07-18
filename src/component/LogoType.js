@@ -4,6 +4,14 @@ import "./Method.css";
 
 const LogoType = () => {
   const [state, setState] = useState("");
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setState(e.target.value);
+      localStorage.setItem("logoType", e.target.value);
+    } else {
+      localStorage.setItem("logoType", "");
+    }
+  };
   return (
     <div className="method">
       <h2>Add Customisation</h2>
@@ -14,18 +22,18 @@ const LogoType = () => {
             type="radio"
             value="logo"
             checked={state === "logo"}
-            onChange={() => setState("logo")}
+            onChange={handleChange}
           />
-          <label for="new">Logo</label>
+          <label htmlFor="new">Logo</label>
         </div>
         <div>
           <input
             type="radio"
             value="text"
             checked={state === "text"}
-            onChange={() => setState("text")}
+            onChange={handleChange}
           />
-          <label for="new">Text</label>
+          <label htmlFor="new">Text</label>
         </div>
       </div>
       <Link to="/customisation/configure" className="continue_method">
